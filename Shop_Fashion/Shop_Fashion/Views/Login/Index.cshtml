@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_Home.cshtml";
+}<section id="form" style="margin-top:0">
+    <!--form-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="login-form">
+                    <!--login form-->
+                    <h2>Đăng nhập</h2>
+                    <form action="/Login/ActionLogin" method="post">
+                       @if (ViewBag.Login != null)
+                       {
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                       }
+                        <input type="hidden" name="ReturnURL" value="@ViewBag.ReturnURL" />
+                        <input type="text" placeholder="Name" required="required"name="user" />
+                        <input type="password" placeholder="Password"required="required" name="pass" autocomplete="off" />
+                        <span>
+                            <input type="checkbox" class="checkbox">
+                            Keep me signed in
+                        </span>
+                        <button type="submit" class="btn btn-default">Login</button>
+                    </form>
+                </div><!--/login form-->
+            </div>
+        	<div class="col-sm-1">
+                @if (ViewBag.register != null)
+                {
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                }
+                <h2 class="or">OR</h2>
+            </div>
+            <div class="col-sm-4">
+                <div class="signup-form"><!--sign up form-->
+                    <h2>Đăng ký tài khoản</h2>
+                  
+                    
+                    <form action="Register" method="post"> 
+                  
+                        <fieldset>
+                            <div class="control-group">
+                                
+                                <div class="controls">
+                                    <input type="text"required="required" placeholder="Username " name="Username" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                
+                                <div class="controls">
+                                    <input type="text"required="required" placeholder="Fullname" name="Fullname" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                
+                                <div class="controls">
+                                    <input type="Text"required="required" placeholder="Address" name="Address" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                
+                                <div class="controls">
+                                    <input type="text"required="required" placeholder="Email" name="Email" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                               
+                                <div class="controls">
+                                    <input type="password" required="required"placeholder="Password" name="Password" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                               
+                                <div class="controls">
+                                    <input type="password"required="required" placeholder="Repassword" name="RePassword" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                
+                                <div class="controls">
+                                    <input type="Text" required="required" placeholder="Telephone" name="Phone" class="input-xlarge">
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-default">Đăng ký</button>
+                        </fieldset>
+                    
+                    </form>
+                </div><!--/sign up form-->
+            </div>
+    </div>
+    </div>
+</section>
+
+

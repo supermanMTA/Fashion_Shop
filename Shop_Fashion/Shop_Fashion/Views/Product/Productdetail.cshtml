@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "Productdetail";
+    Layout = "~/Views/Shared/Layout_Main.cshtml";
+    var user = (Shop_Fashion.Models.Entities.Account)Session[Shop_Fashion.Common.Session.USER_SESSION];
+}
+@using Shop_Fashion.Models.DAL;
+
+@model Shop_Fashion.ViewModel.ProductViewDetailModel
+
+
+<div class="col-sm-9 padding-right">
+    <div class="product-details">
+        <!--product-details-->
+        <div class="col-sm-5">
+            <div class="view-product">
+                <img src="@Model.urlAnh" alt="" />
+                
+            </div>
+           
+        </div>
+        <div class="col-sm-7">
+            <div class="product-information">
+                <!--/product-information-->
+               
+                <h2>@Model.tenSanPham</h2>
+                <p>Web ID: @Model.maSanPham</p>                
+                    Giá: @Model.giaSanPham VND
+                    <p>Màu sắc: @Model.mauSac</p>
+                    <p>Tình trạng: 
+                    @if (@Model.soLuong > 0) {<a> Còn hàng</a>}
+                    else{ <a>Hết hàng. Vui lòng liên hệ lại sau</a>}</p>
+                   <p>Số lượng sản phẩm đang có: @Model.soLuong</p>
+                   @*<a href=""data-id=@Model.maSanPham class="btnAddCart"><i class="fa fa-shopping-cart"></i>Đặt mua</a>*@
+                <button class="btn btn-fefault cart" data-id=@Model.maSanPham id="btnAddCart">
+                    <i class="fa fa-shopping-cart"> Đặt mua</i>
+                </button>
+
+                <p><b>Thương hiệu:</b> @Model.NameSupplier</p>
+               
+            </div><!--/product-information-->
+        </div>
+    </div><!--/product-details-->
+
+    <div class="category-tab shop-details-tab">
+        <!--category-tab-->
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+                <li><a href="#details" data-toggle="tab">Mô tả</a></li>
+                <li><a href="#companyprofile" data-toggle="tab">Thông tin bổ sung</a></li>
+               
+                <li class="active"><a href="#reviews" data-toggle="tab">Bình luận (@Model.ReviewProduct.Count)</a></li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane fade" id="details">
+                @Model.moTa
+            </div>
+
+            <div class="tab-pane fade" id="companyprofile">
+                <table class="table table-striped shop_attributes">
+                    <tbody>
+                        <tr class="">
+                            <th>Size</th>
+                            <td>@Model.size</td>
+                        </tr>
+                        <tr class="alt">
+                            <th>Màu</th>
+                            <td>@Model.mauSac</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+
+           
+            <div class="tab-pane fade active in" id="reviews">
+                <div class="col-sm-12">
+                    @foreach (var item in Model.ReviewProduct)
+                    {
+                        <ul>
+                            <li><a href=""><i class="fa fa-user"></i>@item.Username</a></li>
+                            <li><a href=""><i class="fa fa-clock-o"></i>@item.date</a></li>
+                            
+                        </ul>
+                        <p>@item.Status</p>
+                    }
+                   
+                    <p><b>Viết bình luận</b></p>
+
+                    <form action="/Product/AddReview" method="post">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <input value="@Model.maSanPham" type="hidden" name="IdProduct" />
+                        
+                        <textarea name="Status"></textarea>
+                        <button type="submit" class="btn">Submit</button>
+                        @*@if (user == null)
+                        {
+                            <a href="/Login/Index" class="btn btn-success"> Submit <span class="glyphicon glyphicon-play"></span> </a>
+
+                        }
+                        else
+                        {
+                            <a href="" class="btn btn-success"> Submit <span class="glyphicon glyphicon-play"></span> </a>
+                        }*@
+                        
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div><!--/category-tab-->
+
+</div>
+
+
+<script type="text/javascript">
+
+    $('#btnAddCart').click(function () {
+        var check = $(this).data('id');
+        $.ajax({
+            url: '/Cart/AddItem/' + check,
+            data: {Id: check},
+            type: 'POST',
+            dataType: 'JSON',
+            success: function (data) {
+                if (data.status == true) {
+                    alert("Đã thêm sản phẩm vào giỏ hàng")
+                   // window.location.href = "//Index/";
+                }
+                else {
+                    alert("Sản phẩm đã hết hàng, vui lòng liên hệ sau");
+                }
+            }
+        })
+    })
+</script>

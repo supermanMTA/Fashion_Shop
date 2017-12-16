@@ -1,0 +1,115 @@
+﻿@model Shop_Fashion.Models.Entities.Product
+
+@{
+    ViewBag.Title = "ThemSP";
+    Layout = "~/Areas/Admin/Views/Shared/Layout_admin.cshtml";
+}
+@{
+    var l = ViewBag.Nh;
+}
+
+<h2>@l.Name >> Thêm sản phẩm </h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Product</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="control-label col-md-2">Tên sản phẩm </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">Giá</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UnitPrice)
+                @Html.ValidationMessageFor(model => model.UnitPrice)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Đường dẫn ảnh</div>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-length="The field Description must be a string with a maximum length of 500."
+                       data-val-length-max="500" id="Image" name="Image" type="text" value="@Model.Image" style="width: 155px; height: 30px;">
+                <a id="btnSelectImage" href="#">Chọn ảnh</a>
+                @Html.ValidationMessageFor(model => model.Image)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Ngày nhập</div>
+            <div class="col-md-10">
+                <input type="Date" name="DateProduct" value="@Model.DateProduct" />
+                @Html.ValidationMessageFor(model => model.DateProduct)
+            </div>
+        </div>
+        <input type="hidden" name="IdCategories" value="@l.Id" />
+        <div class="form-group">
+            <div class="control-label col-md-2">Nhà sản xuất</div>
+            <div class="col-md-10" style="width: 155px;">
+                @Html.DropDownListFor(model => model.IdSuppnier, new SelectList(ViewBag.IdSupplier, "Id", "Name"))
+                @Html.ValidationMessageFor(model => model.IdSuppnier)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Màu sắc</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Color)
+                @Html.ValidationMessageFor(model => model.Color)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Kích thước</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Size)
+                @Html.ValidationMessageFor(model => model.Size)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Chất lượng</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Quantity)
+                @Html.ValidationMessageFor(model => model.Quantity)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Giảm giá</div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SaleOff)
+                @Html.ValidationMessageFor(model => model.SaleOff)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Trạng thái</div>
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Status)
+                @Html.ValidationMessageFor(model => model.Status)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">Mô Tả </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description)
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+

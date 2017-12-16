@@ -1,0 +1,76 @@
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\Shop_Fashion.dll.config
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\Shop_Fashion.dll
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\Shop_Fashion.pdb
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\EntityFramework.dll
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\EntityFramework.SqlServer.dll
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Helpers.dll
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Razor.dll
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.Deployment.dll
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.dll
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.Razor.dll
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\EntityFramework.xml
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\EntityFramework.SqlServer.xml
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Razor.xml
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.xml
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.Deployment.xml
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.Razor.xml
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Helpers.xml
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\obj\Debug\Shop_Fashion.dll
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\obj\Debug\Shop_Fashion.pdb
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Mvc.dll
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Mvc.xml
+E:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\obj\Debug\Shop_Fashion.csprojResolveAssemblyReference.cache
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\Shop_Fashion.dll.config
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\Shop_Fashion.dll
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\Shop_Fashion.pdb
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\EntityFramework.xml
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\EntityFramework.SqlServer.xml
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Razor.xml
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.xml
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.Deployment.xml
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.Razor.xml
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Helpers.xml
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\System.Web.Mvc.xml
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\obj\Debug\Shop_Fashion.csprojResolveAssemblyReference.cache
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\obj\Debug\Shop_Fashion.dll
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\obj\Debug\Shop_Fashion.pdb
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\PagedList.dll
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\PagedList.Mvc.dll
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\PagedList.xml
+D:\Năm 4\Kỳ 6\Web\Shop_Fashion\Shop_Fashion\bin\PagedList.Mvc.xml
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\Shop_Fashion.dll.config
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\Shop_Fashion.dll
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\Shop_Fashion.pdb
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\PagedList.dll
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\PagedList.Mvc.dll
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\EntityFramework.xml
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\EntityFramework.SqlServer.xml
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\PagedList.xml
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\PagedList.Mvc.xml
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\System.Web.Razor.xml
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.xml
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.Deployment.xml
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.Razor.xml
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\System.Web.Helpers.xml
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\bin\System.Web.Mvc.xml
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\obj\Debug\Shop_Fashion.csprojResolveAssemblyReference.cache
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\obj\Debug\Shop_Fashion.dll
+D:\Code\Fashion_Shop\Shop_Fashion\Shop_Fashion\obj\Debug\Shop_Fashion.pdb
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\Shop_Fashion.dll.config
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\Shop_Fashion.dll
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\Shop_Fashion.pdb
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\PagedList.dll
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\PagedList.Mvc.dll
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\EntityFramework.xml
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\PagedList.xml
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\PagedList.Mvc.xml
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\System.Web.Razor.xml
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.xml
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\System.Web.Webpages.Razor.xml
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\System.Web.Helpers.xml
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\bin\System.Web.Mvc.xml
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\obj\Debug\Shop_Fashion.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\obj\Debug\Shop_Fashion.dll
+C:\Users\Administrator\Desktop\công nghệ web\Shop_Fashion\Shop_Fashion\obj\Debug\Shop_Fashion.pdb

@@ -1,0 +1,133 @@
+﻿@model Shop_Fashion.Models.Entities.Product
+@using Shop_Fashion.Models.Entities;
+@{
+    ViewBag.Title = "ChiTietSP";
+    Layout = "~/Areas/Admin/Views/Shared/Layout_admin.cshtml";
+}
+
+<h2>Chi tiết sản phẩm</h2>
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            Tên sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+
+        <dt>
+            Giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <dt>
+            Ảnh
+        </dt>
+
+        <dd>
+            <img src="@Model.Image" width="100" height="100" />
+        </dd>
+
+        <dt>
+            Ngày nhập
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateProduct)
+        </dd>
+
+        <dt>
+            Loại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCategories)
+        </dd>
+        @{
+            var xx = ViewBag.l;
+            foreach (Category i in xx)
+            {
+                if (i.Id == Model.IdCategories)
+                {
+                    @i.Name
+                    break;
+                }
+
+            }
+        }
+        <dt>
+            Nhà sản suất
+        </dt>
+
+        <dd>
+            @{
+                var x = ViewBag.nsx;
+                foreach (Supplier i in x)
+                {
+                    if (i.Id == Model.IdSuppnier)
+                    {
+                        @i.Name
+                        break;
+                    }
+
+                }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleOff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd style="width: 400px;">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+</div>
+

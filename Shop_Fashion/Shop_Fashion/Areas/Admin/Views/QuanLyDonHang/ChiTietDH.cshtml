@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Shop_Fashion.Models.Entities.OrderDetail>
+
+@using Shop_Fashion.Models.DAL;
+@using Shop_Fashion.Models.Entities
+@{
+    ViewBag.Title = "ChiTietDH";
+    Layout = "~/Areas/Admin/Views/Shared/Layout_admin.cshtml";
+}
+
+<h2> Hóa đơn: @ViewBag.HD</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Giá
+        </th>
+
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Tổng tiền
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+
+            @{
+                var xx = ViewBag.Pd;
+
+                foreach (Product i in xx)
+                {
+                    if (i.Id == item.Id)
+                    {
+                        <td>
+                            @i.Name
+
+                        </td>
+                        <td>
+                            @i.UnitPrice dong/1sp
+
+
+                        </td>
+
+                        break;
+                    }
+
+                }
+            }
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>*@
+        </tr>
+                }
+
+</table>
+<div style="padding-left: 820px;">Thành tiền : @ViewBag.tien dong</div>
+

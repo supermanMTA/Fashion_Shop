@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Shop_Fashion.Models.Entities.Customer>
+
+@using Shop_Fashion.Models.DAL;
+@using Shop_Fashion.Models.Entities
+@{
+    ViewBag.Title = "DanhSachUser";
+    Layout = "~/Areas/Admin/Views/Shared/Layout_admin.cshtml";
+}
+
+<h2>DanhSachUser</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên Tài khoản
+        </th>
+        <th>
+            Tên đầu đủ
+        </th>
+        <th>
+            Mail
+        </th>
+        <th>
+            Địa Chỉ
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+
+            @{
+                var list = ViewBag.list;
+                foreach (UserInRole i in list)
+                {
+                    if (i.UserName == item.Username)
+                    {
+                        <td>
+                            @{
+                                if (i.Status.ToString() == "True")
+                                {
+                                    <span>Đã kích hoạt</span>
+                                }
+                                else
+                                {
+                                    <span>Chưa kích hoạt</span>
+                                }
+                            }
+
+                        </td>
+                                        break;
+                                    }
+
+                                }
+            }
+
+        </tr>
+                                }
+
+</table>

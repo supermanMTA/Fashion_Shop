@@ -1,0 +1,114 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using PagedList;
+@using Shop_Fashion.Models.DAL;
+@using Shop_Fashion.Models.Entities
+
+@model IEnumerable<Shop_Fashion.Models.Entities.Product>
+
+@{
+    ViewBag.Title = "ChiTietLoai";
+    Layout = "~/Areas/Admin/Views/Shared/Layout_admin.cshtml";
+}
+@{
+    var loai = @ViewBag.l;
+}
+<h2>@loai.Name</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "ThemSP", new { id = @loai.Id })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Giá
+        </th>
+
+        <th>
+            Ảnh
+        </th>
+        <th>
+            Ngày nhập
+        </th>
+        <th>
+            Nhà sản xuất
+
+        </th>
+        <th>
+            Màu sắc
+        </th>
+        <th>
+            Kích thước
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaleOff)
+        </th>
+        <th>
+            Mô tả
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td style="width: 100px;">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+
+            <td>
+                <img src="@item.Image" width="60" height="60" />
+            </td>
+            <td style="width: 50px;">
+                @Html.DisplayFor(modelItem => item.DateProduct)
+            </td>
+
+            <td>
+                @{
+                    var xx = ViewBag.nsx;
+                    foreach (Supplier i in xx)
+                    {
+                        if (i.Id == item.IdSuppnier)
+                        {<span>@i.Name</span> break;
+                        }
+
+                    }
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleOff)
+            </td>
+            <td style="width: 250px;">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh Sửa", "ChinhSuaSP", new { id = item.Id }) |
+                @Html.ActionLink("Chi Tiết", "ChiTietSP", new { id = item.Id }) |
+            </td>
+        </tr>
+                    }
+
+</table>

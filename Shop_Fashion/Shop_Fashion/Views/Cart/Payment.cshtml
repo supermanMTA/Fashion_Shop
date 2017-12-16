@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/Layout_Home.cshtml";
+    var user = (Shop_Fashion.Models.Entities.Account)Session[Shop_Fashion.Common.Session.USER_SESSION];
+}
+@using Shop_Fashion.Models.Entities;
+@model List<CartItem>
+@{
+    ViewBag.Title = "Payment";
+}
+@{
+    double tongtien = 0;
+}
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs" align="center" style="font:100px">
+            <h3>GIỎ HÀNG</h3>
+        </div>
+        @if (Model.Count > 0)
+        {
+               <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="image">Sản phẩm</td>
+                            <td class="description"></td>
+                            <td class="size">Size</td>
+                            <td class="price">Giá (VND)</td>
+                            <td class="quantity">Số lượng</td>
+                            <td class="total">Thành tiền (VND)</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach (var item in Model)
+                        {
+                            tongtien = tongtien + (item.Quantity * item.Sanpham.giaSanPham);
+                        <tr>
+                            <td class="cart_product">
+                                <a href=""><img src="@item.Sanpham.urlAnh" style="width: 100px; height: 100px;" alt=""></a>
+                            </td>
+                            <td class="cart_description">
+                                <h4><a href="">@item.Sanpham.tenSanPham</a></h4>
+                                <p>Web ID: @item.Sanpham.maSanPham</p>
+                            </td>
+                            <td class="cart_size">@item.Sanpham.size</td>
+                            @using (Html.BeginForm("UpdateCart", "Cart", new { @id = item.Sanpham.maSanPham }, FormMethod.Post, new { role = "form" }))
+                            {
+                            <td class="cart_price">
+                                <p>@item.Sanpham.giaSanPham.ToString("N0") </p>
+                            </td>
+                            <td>
+                                <input type="text" name="txtQuantity" value="@item.Quantity" class="form-control" style="width:50px" />
+                            </td>
+                            <td class="cart_total">
+                                <p>@((item.Sanpham.giaSanPham * item.Quantity).ToString("N0"))</p>
+                            </td>
+                            <td>
+                                <input type="submit" value="Update" class="btn btn-link" />
+                            </td>
+                            }
+                            <td><a href="/Cart/RemoveLine/@item.Sanpham.maSanPham" data-id="@item.Sanpham.maSanPham" class="btn btn-link">Xóa</a></td>
+                        </tr>
+                        }
+                        <tr>
+                            <td colspan="5" class="text-center"><h4><strong>Tổng tiền thanh toán</strong></h4></td>
+                            <td colspan="2" style="float:left" ,name="amount"><h4><strong>@tongtien.ToString("N0") VND</strong></h4></td>
+                            <td class="col-sm-1 col-md-1"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                </div>
+                <div class="section group" style="margin-left:40%">
+                    <div class="col-md-6">
+                            <h2>
+                                Thông tin đặt hàng
+                            </h2>
+                       
+                            <input value="@tongtien" type="hidden" name="tongtien" id="tongtien" />
+                            <div class="form-group">
+                                <label>Người nhận</label>
+                                <input name="shipName" class="form-control "id="shipName" />
+                            </div>
+                            <div class="form-group">
+                                <label>Điện thoại</label>
+                                <input name="mobile" class="form-control"id="mobile" />
+                            </div>
+                            <div class="form-group">
+                                <label>Địa chỉ</label>
+                                <input name="address" class="form-control" id="address"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input name="email" class="form-control" id="email"/>
+                            </div>
+                            <button type="submit"class="btn btn-fefault cart btnPayment">Tiến hành đặt hàng</button>
+                            
+                           </div>
+                    </div>
+
+        }
+         else
+                    {
+                    <div class="col-md-12" style="height:50px">
+                        <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+                    </div>
+                    }           
+                </div>
+         
+    </section> <!--/#cart_items-->
+
+<script type="text/javascript">
+
+    $('.btnPayment').click(function () {
+
+        var shipname = $('#shipName').val();
+        var email = $('#email').val();
+        var address = $('#address').val();
+        var mobile = $('#mobile').val();
+        var tongtien = $('#tongtien').val();
+       
+        $.ajax({
+            url: '/Cart/Payment/',
+            data: { shipName: shipname, mobile: mobile, address: address, email: email, tongtien: tongtien },
+            type: 'POST',
+            dataType: 'JSON',
+            success: function (data) {
+                if (data.status == true) {
+                    alert("Bạn đã gửi đơn hàng thành công");
+                    window.location.href = "/Home/Index";
+                }
+                else {
+                    alert("Không gửi được");
+                }
+            }
+        })
+    })
+</script>

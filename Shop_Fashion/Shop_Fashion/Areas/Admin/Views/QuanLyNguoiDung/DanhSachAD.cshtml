@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Shop_Fashion.Models.Entities.UserInRole>
+
+@{
+    ViewBag.Title = "DanhSachAD";
+    Layout = "~/Areas/Admin/Views/Shared/Layout_admin.cshtml";
+}
+
+<h2>Danh sách Admin</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "ThemAD")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên đăng nhập
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+
+            <td>
+                @{
+                    if (item.Status.ToString() == "True")
+                    {
+                        <span>Đã kích hoạt</span>
+                    }
+                    else
+                    {
+                        <span>Chưa kích hoạt</span>
+                    }
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh Sửa", "ChinhSuaAD", new { user = item.UserName }) |
+                @Html.ActionLink("Chi Tiết", "ChiTietAD", new { user = item.UserName }) |
+
+            </td>
+        </tr>
+                    }
+
+</table>

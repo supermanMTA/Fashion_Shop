@@ -1,0 +1,175 @@
+﻿@using Shop_Fashion.Models.DAL;
+@using Shop_Fashion.Models.Entities;
+@model Shop_Fashion.ViewModel.HomeViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_Main.cshtml";
+}
+
+ <div class="col-sm-9 padding-right">
+              
+    <div class="recommended_items">
+                    <!--recommended_items-->
+                    <h2 class="title text-center">SẢN PHẨM MỚI</h2>
+                    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <a href="/Product/Productdetail?id=@Model.SPM[i].Id">
+                                                        <img src="@Model.SPM[i].Image" alt="" href="/Product/Productdetail?id=@Model.SPM[i].Id" />
+                                                    </a>
+                                                        <strong>@Model.SPM[i].Name</strong>
+                                                    
+                                                        @if (@Model.SPM[i].SaleOff == null)
+                                                        {
+                                                        <p>@Model.SPM[i].UnitPrice VND</p><br />}
+                                                        else
+                                                        {<p>@Model.SPM[i].SaleOff vnd</p> <p><strike>@Model.SPKM[i].UnitPrice vnd</strike></p>}
+                                                        
+                                                    <button class="btn btn-fefault cart btnAddCart" data-id=@Model.SPM[i].Id id="">
+                                                        <i class="fa fa-shopping-cart"> Đặt mua</i>
+                                                    </button>
+                                                    <img src="/Assets/Client/images/home/new.png" class="new" alt="" style="width:41px ;height:41px; "/>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                </div>                                                             
+                            <div class="item">
+                                @for (int i = 3; i <= 5; i++)
+                                {
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <a href="/Product/Productdetail?id=@Model.SPM[i].Id">
+                                                        <img src="@Model.SPM[i].Image" alt="" href="/Product/Productdetail?id=@Model.SPM[i].Id" />
+                                                    </a>
+                                                        <strong>@Model.SPM[i].Name</strong>
+                                                   
+                                                        @if (@Model.SPM[i].SaleOff == null)
+                                                        {
+                                                    <p>@Model.SPM[i].UnitPrice VND</p><br />}
+                                                        else
+                                                        {<p>@Model.SPM[i].SaleOff vnd</p> <p><strike>@Model.SPKM[i].UnitPrice vnd</strike></p>}
+                                                       
+                                                    <button class="btn btn-fefault cart btnAddCart" data-id=@Model.SPM[i].Id id="btnAddCart">
+                                                        <i class="fa fa-shopping-cart"> Đặt mua</i>
+                                                    </button>
+                                                        <img src="/Assets/Client/images/home/new.png" class="new" alt="" style="width:41px ;height:41px; " />
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div><!--/recommended_items-->
+    <div class="recommended_items">
+         <!--recommended_items-->
+         <h2 class="title text-center">SẢN PHẨM KHUYẾN MÃI</h2>
+         <div id="recommended-item-carousel1" class="carousel slide" data-ride="carousel">
+             <div class="carousel-inner">
+                 <div class="item active">
+                     @for (int i = 0; i < 3; i++)
+                     {
+                         <div class="col-sm-4">
+                             <div class="product-image-wrapper">
+                                 <div class="single-products">
+                                     <div class="productinfo text-center">
+                                         <a href="/Product/Productdetail?id=@Model.SPKM[i].Id">
+                                             <img src="@Model.SPKM[i].Image" alt="" href="/Product/Productdetail?id=@Model.SPKM[i].Id" /></a>
+                                        
+                                             @if (@Model.SPKM[i].SaleOff == null)
+                                             {
+                                             <p>@Model.SPKM[i].UnitPrice VND</p><br />}
+                                             else
+                                             {<p>@Model.SPKM[i].SaleOff vnd</p> <p><strike>@Model.SPKM[i].UnitPrice vnd</strike></p>}
+                                            
+                                         <button class="btn btn-fefault cart btnAddCart" data-id=@Model.SPKM[i].Id id="">
+                                             <i class="fa fa-shopping-cart"> Đặt mua</i>
+                                         </button>
+
+                                             <img src="/Assets/Client/images/home/sale.png" class="new" alt="" style="width:41px ;height:41px;" />
+                                   </div>
+
+                                 </div>
+                             </div>
+                         </div>
+                     }
+                 </div>
+                 <div class="item">
+                     @for (int i = 3; i <= 5; i++)
+                     {
+                         <div class="col-sm-4">
+                             <div class="product-image-wrapper">
+                                 <div class="single-products">
+                                     <div class="productinfo text-center">
+                                         <a href="/Product/Productdetail?id=@Model.SPKM[i].Id">
+                                             <img src="@Model.SPKM[i].Image" alt="" href="/Product/Productdetail?id=@Model.SPKM[i].Id" /></a>
+                                             <strong>@Model.SPKM[i].Name</strong>
+                                             
+                                                 @if (@Model.SPKM[i].SaleOff == null)
+                                                 {<p>@Model.SPKM[i].UnitPrice VND</p><br/>}
+                                                 else
+                                                 {<p>@Model.SPKM[i].SaleOff vnd</p> <p><strike>@Model.SPKM[i].UnitPrice vnd</strike></p>}
+                                             
+                                         <button class="btn btn-fefault cart btnAddCart" data-id=@Model.SPKM[i].Id id="btnAddCart">
+                                             <i class="fa fa-shopping-cart"> Đặt mua</i>
+                                         </button>
+
+                                             <img src="/Assets/Client/images/home/sale.png" class="new" alt="" style="width:41px ;height:41px;" />
+</div>
+
+                                 </div>
+                             </div>
+                         </div>
+                     }
+                 </div>
+             </div>
+             <a class="left recommended-item-control" href="#recommended-item-carousel1" data-slide="prev">
+                 <i class="fa fa-angle-left"></i>
+             </a>
+             <a class="right recommended-item-control" href="#recommended-item-carousel1" data-slide="next">
+                 <i class="fa fa-angle-right"></i>
+             </a>
+         </div>
+     </div><!--/recommended_items-->
+   </div>
+
+<script type="text/javascript">
+
+    $('.btnAddCart').click( function () {
+        var check = $(this).data('id');
+        $.ajax({
+            url: '/Cart/AddItem/' + check,
+            data: {Id: check},
+            type: 'POST',
+            dataType: 'JSON',
+            success: function (data) {
+                if (data.status == true) {
+                    alert("Đã thêm sản phẩm vào giỏ hàng")
+                   // window.location.href = "//Index/";
+                }
+                else {
+                    alert("Sản phẩm đã hết hàng, vui lòng liên hệ sau");
+                }
+            }
+        })
+    })
+</script>

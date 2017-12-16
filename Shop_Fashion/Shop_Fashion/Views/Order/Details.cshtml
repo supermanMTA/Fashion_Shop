@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Layout_Home.cshtml";
+}
+@using Shop_Fashion.Models.Entities;
+@using Shop_Fashion.ViewModel;
+@model List<OrderViewModel>
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs" align="center" style="font:100px">
+            <h> CHI TIẾT ĐƠN HÀNG</h>
+        </div>
+       
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="image">Sản phẩm</td>
+                            <td>Giá</td>                                                       
+                            <td class="quantity">Số lượng</td>
+                            <td class="total">Thành tiền (VND)</td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                      
+                        @foreach (var item in Model)
+                        {
+                           
+                            <tr>
+                               
+                                <td class="cart_description">
+                                    <strong><a href="">@item.tenSP</a></strong>
+                                    
+                                </td>
+                               
+                                    <td class="cart_price">
+                                        <p>@item.gia </p>
+                                    </td>
+                                    <td>
+                                        <p>@item.SL</p>
+                                    </td>
+                                    <td>@item.Thanhtien</td>
+                                    
+                               
+                                
+                            </tr>
+                        }
+                        <tr>
+                            <td colspan="2" class="text-center"><h4><strong>Tổng tiền thanh toán</strong></h4></td>
+                            <td colspan="2" style="float:left"><h4><strong>@ViewBag.Thanhtien VND</strong></h4></td>
+
+                           
+                        </tr>
+                        @if (ViewBag.status == 0)
+                        {
+                        <tr>
+
+                            <td>
+
+                                <a href="#" data-id="@ViewBag.ID" class="btn btn-success " id="btnHuy"> Hủy đơn hàng <span class="glyphicon glyphicon-play"></span> </a>
+
+                            </td>
+                        </tr> }
+                        
+
+                    </tbody>
+                </table>
+            </div>
+                         
+    </div>
+</section> <!--/#cart_items-->
+<script type="text/javascript">
+    $("#btnHuy").click(function () {
+        var ok = confirm("Bạn có chắc chắn muốn hủy đơn hàng?");
+        var check=$(this).data('id');
+        if (ok == false) return;       
+            $.ajax({
+                url: '/Order/Remove',
+                data: { id: check },
+                type: 'POST',
+                dataType:'JSON',
+                success: function (data) {
+                    if (data.status == true) {
+                        alert("Hủy đơn hàng thành công");
+                        window.location.href = "/Home/Index";
+                    }
+                    else{alert("Hủy đơn hàng thất bại")}
+                }
+            })
+        }
+    )
+
+</script>
+

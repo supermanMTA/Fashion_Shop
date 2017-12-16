@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_Home.cshtml";
+    var user = (Shop_Fashion.Models.Entities.Account)Session[Shop_Fashion.Common.Session.USER_SESSION];
+}
+@using Shop_Fashion.Models.Entities;
+@model List<CartItem>
+@{
+    ViewBag.Title = "Index";
+}
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs"align="center" style="font:100px" >
+           <h2>GIỎ HÀNG</h2> 
+        </div>
+        @if (Model.Count > 0)
+        {
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Sản phẩm</td>
+                        <td class="description"></td>
+                        <td class="size">Size</td>
+                        <td class="price">Giá (VND)</td>
+                        <td class="quantity">Số lượng</td>
+                        <td class="total">Thành tiền (VND)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        double tongTien = 0;
+                    }
+                    @foreach (var item in Model)
+                    {
+                        tongTien = tongTien + (item.Quantity * item.Sanpham.giaSanPham);
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <tr>
+                        <td class="cart_product">
+                            <a href=""><img src="@item.Sanpham.urlAnh" style="width: 100px; height: 100px;" alt=""></a>
+                        </td>
+                        <td class="cart_description">
+                            <strong><a href="/Product/Productdetail?id=@item.Sanpham.maSanPham">@item.Sanpham.tenSanPham</a></strong>
+                            <p>Web ID: @item.Sanpham.maSanPham</p>
+                        </td >
+                        <td class="cart_size">@item.Sanpham.size</td>
+                        @using (Html.BeginForm("UpdateCart", "Cart", new { @id = item.Sanpham.maSanPham }, FormMethod.Post, new { role = "form" }))
+                        {
+                        <td class="cart_price">
+                            <p>@item.Sanpham.giaSanPham.ToString("N0") </p>
+                        </td>
+                        <td >
+                            <input type="text" name="txtQuantity" value="@item.Quantity" class="form-control" style="width:50px" />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="cart_total">
+                            <p>@((item.Sanpham.giaSanPham* item.Quantity).ToString("N0"))</p>
+                        </td>
+                        <td>
+                            <input type="submit" value="Update" class="btnUpdate" />
+                        </td>
+                        }
+                        <td><input type="submit" value="Xóa" data-id=@item.Sanpham.maSanPham  class="btnDelete" /></td>
+                    </tr>
+                    }
+                    <tr>
+                        <td colspan="5" class="text-center"><h4><strong>Tổng tiền thanh toán</strong></h4></td>
+                        <td colspan="2" style="float:left"><h4><strong>@tongTien.ToString("N0") VND</strong></h4></td>
+                        <td class="col-sm-1 col-md-1"></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                            <a href="/Home/Index" class="btn btn-default"> <span class="glyphicon glyphicon-shopping-cart"></span> Tiếp tục mua hàng </a>
+                        </td>
+                        <td>
+                            <a href="/Cart/Clear" class="btn btn-default"> <span class="glyphicon glyphicon-remove"></span> Xóa giỏ hàng </a>
+                        </td>
+                        <td>
+                            @if (user == null)
+                            {
+                                <a href="/Login/Index" class="btn btn-success"> Thanh toán <span class="glyphicon glyphicon-play"></span> </a>
+
+                            }
+                            else
+                            {
+                                <a href="/Cart/Payment" class="btn btn-success"> Thanh toán <span class="glyphicon glyphicon-play"></span> </a>
+                            }                                                           
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+         }
+        else
+        {
+           <div class="col-md-12" style="height:50px">
+           <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+            </div>
+       }
+    </div>
+</section> <!--/#cart_items-->
+<script  type="text/javascript">
+
+    $('.btnDelete').click(function () {
+        var check = $(this).data('id');
+        $.ajax({
+            url: '/Cart/RemoveLine/' + check,
+            data: {Id: check},
+            type: 'POST',
+            dataType: 'JSON',
+            success: function (data) {
+                if (data.status == true) {
+                    alert("Đã xóa sản phẩm khỏi đơn hàng")
+                    window.location.href = "/Cart/Index/";
+                }
+                else {
+                    alert("Không thể xóa được");
+                }
+            }
+        })
+    })
+ 
+</script>
